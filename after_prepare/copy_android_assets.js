@@ -17,7 +17,7 @@ catch( e ) {
 }
 
 // incase there are any spaces in the projectname
-var projectname = config.name.replace(" ", "\\ ");
+// var projectname = config.name.replace(" ", "\\ ");
 
 // for some reason, using shell.cp() would throw this error:
 // "cp: copy File Sync: could not write to dest file (code=ENOENT)"

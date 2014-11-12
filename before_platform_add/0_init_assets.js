@@ -13,10 +13,12 @@ try {
     console.log( "Initial setup already done." );
 }
 catch( e ) {
-    shell.exec( "mv " + resroot + " " + rootdir + "/assets", {silent:true} );
-    shell.exec( "rm -rf  " + resroot + "/spec" + rootdir + "/assets", {silent:true} );
+    shell.mkdir( "-p", rootdir + "/assets" );
+    shell.exec( "cp -Rf " + resroot + "/* " + rootdir + "/assets", {silent:true} );
+    // shell.exec( "rm -rf  " + resroot + "/spec" + rootdir + "/assets", {silent:true} );
+    
     // remove the spec directory and file. really not needed in the project workspaces.
-    shell.rm( "-rf", [ wwwroot + "/spec", wwwroot + "/spec.html" ] );
+    // shell.rm( "-rf", [ wwwroot + "/spec", wwwroot + "/spec.html" ] );
     shell.exec( "touch " + rootdir + "/.done", {silent:true} );
 }
 
